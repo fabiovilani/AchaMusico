@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Home</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <!-- Bootstrap core CSS -->
+    <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
+	
+	<!-- Font Awesome -->
+	<link href="css/font-awesome.min.css" rel="stylesheet">
+	
+	<!-- Pace -->
+	<link href="css/pace.css" rel="stylesheet">
+	
+	<!-- Chosen -->
+	<link href="css/chosen/chosen.min.css" rel="stylesheet"/>
+
+	<!-- Datepicker -->
+	<link href="css/datepicker.css" rel="stylesheet"/>
+	
+	<!-- Timepicker -->
+	<link href="css/bootstrap-timepicker.css" rel="stylesheet"/>
+	
+	<!-- Slider -->
+	<link href="css/slider.css" rel="stylesheet"/>
+	
+	<!-- Tag input -->
+	<link href="css/jquery.tagsinput.css" rel="stylesheet"/>
+
+	<!-- WYSIHTML5 -->
+	<link href="css/bootstrap-wysihtml5.css" rel="stylesheet"/>
+	
+	<!-- Dropzone -->
+	<link href='css/dropzone/dropzone.css' rel="stylesheet"/>
+	
+	<!-- Perfect -->
+	<link href="css/app.min.css" rel="stylesheet">
+	<link href="css/app-skin.css" rel="stylesheet">
+
+  </head>
+
+  <body style="background: black">
+	<div class="login-wrapper">
+		<div class="text-center">
+			<h2 class="fadeInUp animation-delay8" style="font-weight:bold">
+				<span class="text-success fa fa-music"> Acha</span> <span style="color:orange; text-shadow:0 1px #fff">Musico</span>
+			</h2>
+		</div>
+		<div class="login-widget animation-delay1">	
+			<div class="panel panel-default">
+				<div class="panel-heading clearfix">
+					<div class="pull-left">
+						<i class="fa fa-lg"></i> Home
+					</div>
+					<a class="btn btn-success btn-sm bounceIn animation-delay5 login-link pull-right" href="cadastrar.html"><i class="fa fa-sign-in"></i> Cadastre-se</a>
+				</div>
+				<div class="panel-body">
+					<form class="form-login">
+						<div class="form-group">
+							<label class="control-label">Tipo de Instrumento</label>
+								<div class="">
+									<select class="form-control chzn-select">
+										<option>Guitarra</option>
+										<option>Bateria</option>
+										<option>Baixo</option>
+										<option>Vocalista</option>
+									</select>
+								</div><!-- /.col -->
+							</div><!-- /form-group -->
+						<div class="form-group">
+							<label class="control-label">Estado</label>
+								<div class="">
+									<select id="estados" class="form-control chzn-select">
+										<option>São Paulo</option>
+										<option>Rio de Janeiro</option>
+									</select>
+								</div><!-- /.col -->
+							</div><!-- /form-group -->
+						<div class="form-group">
+							<label class="control-label">Cidade</label>
+								<div class="">
+									<select id="cidades" class="form-control chzn-select">
+										<option value="0">Selecione um estado</option>
+									</select>
+								</div><!-- /.col -->
+							</div><!-- /form-group -->
+						<div>
+							<button class="btn btn-success bounceIn animation-delay5">Buscar</button>
+						</div>
+						<hr>
+							<div class="panel panel-default">
+							<div class="panel-heading">
+								Musicos
+							</div>
+							<table class="table table-bordered table-condensed table-hover table-striped">
+								<thead>
+									<tr>
+										<th>ID</th>
+										<th>Name</th>
+										<th>Date</th>
+										<th>Status</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td>
+											3242
+										</td>
+										<td>
+											John Doe
+										</td>
+										<td>
+											Oct 08,2013
+										</td>
+										<td>
+											<span class="label label-warning">Pending</span>
+										</td>
+									</tr>
+									<tr>
+										<td>
+											3243
+										</td>
+										<td>
+											Jahn Doe
+										</td>
+										<td>
+											Oct 07,2013
+										</td>
+										<td>
+											<span class="label label-warning">Pending</span>
+										</td>
+									</tr>
+									<tr>
+										<td>
+											3244
+										</td>
+										<td>
+											Bill Doe
+										</td>
+										<td>
+											29 Sep,2013
+										</td>
+										<td>
+											<span class="label label-success">Approved</span>
+										</td>
+									</tr>
+									<tr>
+										<td>
+											3245
+										</td>
+										<td>
+											Kate Doe
+										</td>
+										<td>
+											19 July,2013
+										</td>
+										<td>
+											<span class="label label-success">Approved</span>
+										</td>
+									</tr>
+									<tr>
+										<td>
+											3246
+										</td>
+										<td>
+											Jame Doe
+										</td>
+										<td>
+											18 July,2013
+										</td>
+										<td>
+											<span class="label label-danger">Banned</span>
+										</td>
+									</tr>
+								</tbody>
+							</table>
+						</div><!-- /panel -->
+					</form>
+				</div>
+			</div><!-- /panel -->
+		</div><!-- /login-widget -->
+	</div><!-- /login-wrapper -->
+
+    <!-- Le javascript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    
+    <!-- Jquery -->
+	<script src="js/jquery-1.10.2.min.js"></script>
+    
+    <!-- Bootstrap -->
+    <script src="bootstrap/js/bootstrap.min.js"></script>
+
+	<!-- Jquery -->
+	<script src="js/jquery-1.10.2.min.js"></script>
+	
+	<!-- Bootstrap -->
+    <script src="bootstrap/js/bootstrap.min.js"></script>
+
+    <!-- Javascripts -->
+	<script>
+
+	 $(document).ready(function () {
+	        $.ajax({
+	            type: "get",
+	            url: "https://gist.githubusercontent.com/letanure/3012978/raw/36fc21d9e2fc45c078e0e0e07cce3c81965db8f9/estados-cidades.json",
+	            data: { nome: $("#estados").val() },
+	            dataType: 'json',
+	            success: function (obj) {
+	                if (obj != null) {
+	                    var data = obj.estados;
+	                    var selectbox = $("#estados");
+	                    selectbox.find('option').remove();
+	                    $.each(data, function (i, d) {
+	                        $('<option>').val([i]).text(d.nome).appendTo(selectbox);
+	                    });
+	                }
+	            }
+	        });
+	    });
+
+        $("#estados").change(function () {
+            $.ajax({
+	            type: "get",
+	            url: "https://gist.githubusercontent.com/letanure/3012978/raw/36fc21d9e2fc45c078e0e0e07cce3c81965db8f9/estados-cidades.json",
+	            data: { nome: $("#cidades").val() },
+	            dataType: 'json',
+	            success: function (obj) {
+	                if (obj != null) {
+	                    var data = obj.estados;
+	                    var selectbox = $("#cidades");
+	                    selectbox.find('option').remove();
+	                    $.each(data[$("#estados").val()].cidades, function (i, d) {
+	                        $('<option>').val([i]).text(d).appendTo(selectbox);
+	                    });
+	                }
+	            }
+	        });
+        });
+    </script>
+
+  </body>
+</html>
