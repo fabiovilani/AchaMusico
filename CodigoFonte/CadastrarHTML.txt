@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Cadastrar</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <!-- Bootstrap core CSS -->
+    <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
+	
+	<!-- Font Awesome -->
+	<link href="css/font-awesome.min.css" rel="stylesheet">
+	
+	<!-- Pace -->
+	<link href="css/pace.css" rel="stylesheet">
+	
+	<!-- Chosen -->
+	<link href="css/chosen/chosen.min.css" rel="stylesheet"/>
+
+	<!-- Datepicker -->
+	<link href="css/datepicker.css" rel="stylesheet"/>
+	
+	<!-- Timepicker -->
+	<link href="css/bootstrap-timepicker.css" rel="stylesheet"/>
+	
+	<!-- Slider -->
+	<link href="css/slider.css" rel="stylesheet"/>
+	
+	<!-- Tag input -->
+	<link href="css/jquery.tagsinput.css" rel="stylesheet"/>
+
+	<!-- WYSIHTML5 -->
+	<link href="css/bootstrap-wysihtml5.css" rel="stylesheet"/>
+	
+	<!-- Dropzone -->
+	<link href='css/dropzone/dropzone.css' rel="stylesheet"/>
+	
+	<!-- Perfect -->
+	<link href="css/app.min.css" rel="stylesheet">
+	<link href="css/app-skin.css" rel="stylesheet">
+
+  </head>
+
+  <body style="background: black">
+	<div class="login-wrapper">
+		<div class="text-center">
+			<h2 class="fadeInUp animation-delay8" style="font-weight:bold">
+				<span class="text-success fa fa-music"> Acha</span> <span style="color: orange; text-shadow:0 1px #fff">Musico</span>
+			</h2>
+		</div>
+		<div class="login-widget animation-delay1">	
+			<div class="panel panel-default">
+				<div class="panel-heading clearfix">
+					<div class="pull-left">
+						<i class="fa fa-lg"></i> Cadastro
+					</div>
+				</div>
+				<div class="panel-body">
+					<section class="">
+						<div class="form-group">
+							<label>Nome Completo</label>
+							<input id="nome" type="text" placeholder="Nome Completo" class="form-control input-sm bounceIn animation-delay2">
+						</div>
+						<div class="form-group">
+							<label>Idade</label>
+							<input id="idade" type="number" placeholder="Idade" class="form-control input-sm bounceIn animation-delay2">
+						</div>
+						<div class="form-group">
+						<label class="control-label">Estado</label>
+						<div class="bounceIn animation-delay2">
+							<select id="estados" class="form-control chzn-select">
+							<option value="0">São Paulo</option>
+							</select>
+						</div><!-- /.col -->
+						</div><!-- /form-group -->
+						<div class="form-group">
+							<label class="control-label">Cidade</label>
+							<div class="bounceIn animation-delay2">
+								<select id="cidades" class="form-control chzn-select">
+									<option value="0">Selecione um estado</option>
+									<option value="0">São Paulo</option>
+								</select>
+							</div><!-- /.col -->
+						</div><!-- /form-group -->
+						<div class="form-group">
+							<label>Numero de Telefone</label>
+							<input id="telefone" type="text" placeholder="Numero de Telefone" class="form-control input-sm bounceIn animation-delay2">
+						</div>
+						<div class="form-group">
+							<label>Estilo musical</label>
+							<input id="estiloMusical" type=text placeholder="Estilo musical" class="form-control input-sm bounceIn animation-delay2">
+						</div>
+						<div class="form-group">
+						<label class="control-label">Tipo de Instrumento</label>
+						<div class="bounceIn animation-delay2">
+							<select id="tipoInstrumento" class="form-control chzn-select">
+								<option value="0" selected="selected">Selecione</option>
+										<option value="1">Baixista</option>
+										<option value="2">Bandolinista</option>
+										<option value="3">Banjoísta</option>
+										<option value="4">Baterista</option>
+										<option value="5">Berimbalista</option>
+										<option value="6">Cavaquinista</option>
+										<option value="7">Cuiqueiro</option>
+										<option value="8">DJ</option>
+										<option value="9">Flautista</option>
+										<option value="10">Gaitista</option>
+										<option value="11">Guitarrista (Base)</option>
+										<option value="12">Guitarrista (Solo)</option>
+										<option value="13">Harpista</option>
+										<option value="14">Pandeirista</option>
+										<option value="15">Percussionista</option>
+										<option value="16">Pianista</option>
+										<option value="17">Sanfoneiro</option>
+										<option value="18">Saxofonista</option>
+										<option value="19">Sopro - Outros</option>
+										<option value="20">Tecladista</option>
+										<option value="21">Triangulista</option>
+										<option value="22">Trombonista</option>
+										<option value="23">Trompetista</option>
+										<option value="24">Ukulelista</option>
+										<option value="25">Violeiro (viola)</option>
+										<option value="26">Violinista (violino)</option>
+										<option value="27">Violoncelista</option>
+										<option value="28">Violonista (violão)</option>
+										<option value="29">Vocalista</option>
+										<option value="30">Zabumbeiro</option>
+							</select>
+						</div><!-- /.col -->
+						</div><!-- /form-group -->
+						<div class="form-group">
+							<label class="control-label">Objetivo</label>
+								<div class="">
+									<select id="objetivo" class="form-control chzn-select">
+										<option value="0" selected="selected">Selecione</option>
+										<option>Ambos</option>
+										<option>Hobby</option>
+										<option>Profissional</option>
+									</select>
+								</div><!-- /.col -->
+							</div><!-- /form-group -->
+						<div class="form-group">
+							<label>Influências</label>
+							<input id="influencias" type="text" placeholder="Influências" class="form-control input-sm bounceIn animation-delay2">
+						</div>
+						<div class="form-group">
+							<label>Outras Habilidades</label>
+							<input id="outrasHabilidades" type="text" placeholder="Outras Habilidades" class="form-control input-sm bounceIn animation-delay2">
+						</div>
+						<div>
+						<a class="btn btn-success btn-sm bounceIn animation-delay4 login-link pull-left" href="home.html"><i class="fa fa-sign-in"></i> Voltar</a>
+						</div>
+						<div>
+						<button id="btnCadastrar" class="btn btn-success bounceIn animation-delay5 pull-right" onclick="cadastrar()">Cadastrar</button>
+						</div>
+					</section>
+				</div>
+			</div><!-- /panel -->
+		</div><!-- /login-widget -->
+	</div><!-- /login-wrapper -->
+
+    <!-- Le javascript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    
+    <!-- Jquery -->
+	<script src="js/jquery-1.10.2.min.js"></script>
+    
+    <!-- Bootstrap -->
+    <script src="bootstrap/js/bootstrap.min.js"></script>
+
+	<!-- Jquery -->
+	<script src="js/jquery-1.10.2.min.js"></script>
+	
+	<!-- Bootstrap -->
+    <script src="bootstrap/js/bootstrap.min.js"></script>
+	
+	<!--Javascripts-->
+	<script type="text/javascript" src="js/custom.js"></script>
+
+  </body>
+</html>

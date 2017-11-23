@@ -1,0 +1,113 @@
+ $(document).ready(function () {
+		$.ajax({
+			type: "get",
+			url: "https://gist.githubusercontent.com/letanure/3012978/raw/36fc21d9e2fc45c078e0e0e07cce3c81965db8f9/estados-cidades.json",
+			data: { nome: $("#estados").val() },
+			dataType: 'json',
+			success: function (obj) {
+				if (obj != null) {
+					var data = obj.estados;
+					var selectbox = $("#estados");
+					selectbox.find('option').remove();
+					$.each(data, function (i, d) {
+						$('<option>').val([i]).text(d.nome).appendTo(selectbox);
+					});
+				}
+			}
+		});
+	});
+
+	$("#estados").change(function () {
+		$.ajax({
+			type: "get",
+			url: "https://gist.githubusercontent.com/letanure/3012978/raw/36fc21d9e2fc45c078e0e0e07cce3c81965db8f9/estados-cidades.json",
+			data: { nome: $("#cidades").val() },
+			dataType: 'json',
+			success: function (obj) {
+				if (obj != null) {
+					var data = obj.estados;
+					var selectbox = $("#cidades");
+					selectbox.find('option').remove();
+					$.each(data[$("#estados").val()].cidades, function (i, d) {
+						$('<option>').val([i]).text(d).appendTo(selectbox);
+					});
+				}
+			}
+		});
+	});
+	
+	function buscar() {
+		
+		var pessoa = document.getElementById('tabela').appendChild();
+		var nmPessoa = document.getElementById('tbnome').appendChild();
+		var instPessoa = document.getElementById('tbinstrumento').appendChild();
+		var objPessoa = document.getElementById('tbobjetivo').appendChild();
+		
+		$.ajax({
+			type: "GET",
+			url: "/AchaMusic/buscar",
+			data: { instrumento : $('#instrumento').val(),
+					objetivo :$('#objetivo').val(),
+					estado : $('#estados').val(),
+					cidade :$('#cidades').val()},
+			dataType: 'json',
+			success: function (obj) {
+				
+				for(i=0;i<obj.length;i++){
+					var pessoa = document.getElementById('tabela').appendChild();
+					var nomePessoa = document.getElementById('tbnome').appendChild();
+					var instrumentoPessoa = document.getElementById('tbinstrumento').appendChild();
+					var objetivoPessoa = document.getElementById('tbobjetivo').appendChild();
+					
+					musico.val(obj.id);
+					nomePessoa.val(obj.nome);
+					instrumentoPessoa.va(obj.instrumento);
+					objetivoPessoa.val(obj.objetivo);
+				}
+			}
+		});
+	};
+
+	function cadastrar() {
+		$.ajax({
+			type: "POST",
+			url: "/AchaMusic/cadastrar",
+			data: { nome : $('#nome').val(),
+					idade :$('#idade').val(),
+					estado :$('#estados').val(),
+					cidade :$('#cidades').val(),
+					telefone :$('#telefone').val(),
+					estiloMusical :$('#estiloMusical').val(),
+					tipoInstrumento :$('#tipoInstrumento').val(),
+					Objetivo :$('#objetivo').val(),
+					influencias :$('#influencias').val(),
+					outrasHabilidades :$('#outrasHabilidades').val()},
+			dataType: 'json',
+			success: function (obj) {
+				alert('Cadastrado com sucesso');
+			}
+		});
+	};
+	
+	function consultaMusico(index){
+		$.ajax({
+	
+		type: "GET",
+		url: "/AchaMusic/buscar=?index",
+		dataType: 'json',
+		success: function (obj) {
+			
+				$('#lblNome'[index]).val();
+				$('#lblIdade'[index]).val();
+				$('#lblEstado'[index]).val();
+				$('#lblCidade'[index]).val();
+				$('#lblTelefone'[index]).val();
+				$('#lblEstiloMusical'[index]).val();
+				$('#lblTipoInstrumento'[index]).val();
+				$('#lblObjetivo'[index]).val();
+				$('#lblInfluencias'[index]).val();
+				$('#lblOutrasHabilidades'[index]).val();
+				
+			}
+		});
+	}

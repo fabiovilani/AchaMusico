@@ -1,0 +1,95 @@
+import java.sql.Statement;
+import java.util.ArrayList;
+import java.awt.List;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+
+public class DAO {
+	
+	private static DAO conexaoUtil = null;
+	
+	public static DAO getInstance() {
+		conexaoUtil = new DAO();
+		return conexaoUtil;
+	}
+	
+	public Connection getConnection () throws ClassNotFoundException, SQLException{
+		
+		String servidor = "jdbc:sqlserver://localhost:1433;databaseName=AchaMusico" ;
+		String usuario = "sa";
+		String senha = "1234";
+		String driver = "com.microsoft.sqlserver.jdbc.SQLServerDriver";
+		
+		Class.forName(driver);
+		return DriverManager.getConnection(servidor, usuario, senha);
+	}
+	
+	public void inserir (Entity pessoa) throws SQLException {
+		try {
+			Connection connection = DAO.getInstance().getConnection();
+			String inserir = "INSERT INTO bd (Nome) VALUES (?,?,?,?,?,?,?,?,?,?)";
+			PreparedStatement statement = connection.prepareStatement(inserir);
+			statement.setString(1, pessoa.nome);
+			statement.setInt(2, pessoa.idade);
+			statement.setString(3, pessoa.estado);
+			statement.setString(4, pessoa.cidade);
+			statement.setString(5, pessoa.telefone);
+			statement.setString(6, pessoa.estiloMusical);
+			statement.setString(7, pessoa.tipoDeInstrumento);
+			statement.setString(8, pessoa.objetivo);
+			statement.setString(9, pessoa.influencias);
+			statement.setString(10, pessoa.outrasHabilidades);
+			statement.execute();
+			connection.close();
+		}catch(Exception e) {
+			System.out.println(e);
+		}
+		
+	}
+	
+	public ArrayList<Entity> buscar (Entity pessoa) throws SQLException {
+		
+		ArrayList<Entity> listaPessoas = new ArrayList<Entity>();
+		
+		try {
+			Connection connection = DAO.getInstance().getConnection();
+			String inserir = "select * from bd where TipoDeInstrumento = ? AND Objetivo = ? AND Estado = ? AND Cidade = ?";
+			PreparedStatement statement = connection.prepareStatement(inserir);
+			statement.setString(1, pessoa.tipoDeInstrumento);
+			statement.setString(2, pessoa.objetivo);
+			statement.setString(3, pessoa.estado);
+			statement.setString(4, pessoa.cidade);
+			
+			ResultSet resultset = statement.executeQuery();
+			
+			while(resultset.next()) {
+				
+				Entity pessoaConsultada = new Entity();
+				
+				statement.setString(1, pessoaConsultada.nome);
+				statement.setInt(2, pessoaConsultada.idade);
+				statement.setString(3, pessoaConsultada.estado);
+				statement.setString(4, pessoaConsultada.cidade);
+				statement.setString(5, pessoaConsultada.telefone);
+				statement.setString(6, pessoaConsultada.estiloMusical);
+				statement.setString(7, pessoaConsultada.tipoDeInstrumento);
+				statement.setString(8, pessoaConsultada.objetivo);
+				statement.setString(9, pessoaConsultada.influencias);
+				statement.setString(10, pessoaConsultada.outrasHabilidades);
+				
+				listaPessoas.add(pessoaConsultada);
+			}
+			
+			connection.close();
+			
+		}catch(Exception e) {
+			System.out.println(e);
+		}
+
+		return listaPessoas;
+	}
+
+}

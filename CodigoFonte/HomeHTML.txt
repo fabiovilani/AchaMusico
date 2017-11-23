@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Home</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <!-- Bootstrap core CSS -->
+    <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
+	
+	<!-- Font Awesome -->
+	<link href="css/font-awesome.min.css" rel="stylesheet">
+	
+	<!-- Pace -->
+	<link href="css/pace.css" rel="stylesheet">
+	
+	<!-- Chosen -->
+	<link href="css/chosen/chosen.min.css" rel="stylesheet"/>
+
+	<!-- Datepicker -->
+	<link href="css/datepicker.css" rel="stylesheet"/>
+	
+	<!-- Timepicker -->
+	<link href="css/bootstrap-timepicker.css" rel="stylesheet"/>
+	
+	<!-- Slider -->
+	<link href="css/slider.css" rel="stylesheet"/>
+	
+	<!-- Tag input -->
+	<link href="css/jquery.tagsinput.css" rel="stylesheet"/>
+
+	<!-- WYSIHTML5 -->
+	<link href="css/bootstrap-wysihtml5.css" rel="stylesheet"/>
+	
+	<!-- Dropzone -->
+	<link href='css/dropzone/dropzone.css' rel="stylesheet"/>
+	
+	<!-- Perfect -->
+	<link href="css/app.min.css" rel="stylesheet">
+	<link href="css/app-skin.css" rel="stylesheet">
+
+  </head>
+
+  <body style="background: black">
+	<div class="login-wrapper">
+		<div class="text-center">
+			<h2 class="fadeInUp animation-delay8" style="font-weight:bold">
+				<span class="text-success fa fa-music"> Acha</span> <span style="color:orange; text-shadow:0 1px #fff">Musico</span>
+			</h2>
+		</div>
+		<div class="login-widget animation-delay1">	
+			<div class="panel panel-default">
+				<div class="panel-heading clearfix">
+					<div class="pull-left">
+						<i class="fa fa-lg"></i> Home
+					</div>
+					<a class="btn btn-success btn-sm bounceIn animation-delay5 login-link pull-right" href="cadastrar.html"><i class="fa fa-sign-in"></i> Cadastre-se</a>
+				</div>
+				<div class="panel-body">
+					<section class="">
+						<div class="form-group">
+							<label class="control-label">Tipo de Instrumento</label>
+								<div class="">
+									<select id="instrumento" class="form-control chzn-select">
+										<option value="0" selected="selected">Selecione</option>
+										<option value="1">Baixista</option>
+										<option value="2">Bandolinista</option>
+										<option value="3">Banjoísta</option>
+										<option value="4">Baterista</option>
+										<option value="5">Berimbalista</option>
+										<option value="6">Cavaquinista</option>
+										<option value="7">Cuiqueiro</option>
+										<option value="8">DJ</option>
+										<option value="9">Flautista</option>
+										<option value="10">Gaitista</option>
+										<option value="11">Guitarrista (Base)</option>
+										<option value="12">Guitarrista (Solo)</option>
+										<option value="13">Harpista</option>
+										<option value="14">Pandeirista</option>
+										<option value="15">Percussionista</option>
+										<option value="16">Pianista</option>
+										<option value="17">Sanfoneiro</option>
+										<option value="18">Saxofonista</option>
+										<option value="19">Sopro - Outros</option>
+										<option value="20">Tecladista</option>
+										<option value="21">Triangulista</option>
+										<option value="22">Trombonista</option>
+										<option value="23">Trompetista</option>
+										<option value="24">Ukulelista</option>
+										<option value="25">Violeiro (viola)</option>
+										<option value="26">Violinista (violino)</option>
+										<option value="27">Violoncelista</option>
+										<option value="28">Violonista (violão)</option>
+										<option value="29">Vocalista</option>
+										<option value="30">Zabumbeiro</option>
+									</select>
+								</div><!-- /.col -->
+							</div><!-- /form-group -->
+							<div class="form-group">
+							<label class="control-label">Objetivo</label>
+								<div class="">
+									<select id="objetivo" class="form-control chzn-select">
+										<option value="0" selected="selected">Selecione</option>
+										<option>Ambos</option>
+										<option>Hobby</option>
+										<option>Profissional</option>
+									</select>
+								</div><!-- /.col -->
+							</div><!-- /form-group -->
+						<div class="form-group">
+							<label class="control-label">Estado</label>
+								<div class="">
+									<select id="estados" class="form-control chzn-select">
+									</select>
+								</div><!-- /.col -->
+							</div><!-- /form-group -->
+						<div class="form-group">
+							<label class="control-label">Cidade</label>
+								<div class="">
+									<select id="cidades" class="form-control chzn-select">
+										<option value="0">Selecione um estado</option>
+									</select>
+								</div><!-- /.col -->
+							</div><!-- /form-group -->
+						<div>
+							<button id="btnBuscar" class="btn btn-success bounceIn animation-delay5" onclick="buscar()">Buscar</button>
+						</div>
+						<hr>
+							<div class="panel panel-default">
+							<div class="panel-heading">
+								Musicos
+							</div>
+							<table class="table table-bordered table-condensed table-hover table-striped">
+								<thead>
+									<tr>
+										<th>Nome</th>
+										<th>Instrumento</th>
+										<th>Objetivo</th>
+										<th>Mais</th>
+									</tr>
+								</thead>
+								<tbody id="tabela">
+									<tr>
+										<td id="tbnome">
+										</td>
+										<td id="tbinstrumento">
+										</td>
+										<td id="tbobjetivo">
+										</td>
+										<td>
+											<span id="musico" class="label label-success" onclick="consultaMusico(this.val())" href="consulta.html">+</span>
+										</td>
+									</tr>
+								</tbody>
+							</table>
+						</div><!-- /panel -->
+					</section>
+				</div>
+			</div><!-- /panel -->
+		</div><!-- /login-widget -->
+	</div><!-- /login-wrapper -->
+
+    <!-- Le javascript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    
+    <!-- Jquery -->
+	<script src="js/jquery-1.10.2.min.js"></script>
+    
+    <!-- Bootstrap -->
+    <script src="bootstrap/js/bootstrap.min.js"></script>
+
+	<!-- Jquery -->
+	<script src="js/jquery-1.10.2.min.js"></script>
+	
+	<!-- Bootstrap -->
+    <script src="bootstrap/js/bootstrap.min.js"></script>
+	
+	<!--Javascripts-->
+	<script type="text/javascript" src="js/custom.js"></script>
+
+  </body>
+</html>

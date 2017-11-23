@@ -1,0 +1,28 @@
+import java.util.ArrayList;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.jws.WebService;
+
+@WebServlet(urlPatterns=("/buscar"))
+public class ControllerBuscar extends HttpServlet{
+	
+	@Override
+	public ArrayList<Entity> doGet(HttpServletRequest req){
+		
+		Entity musicos = new Entity();
+		ArrayList<Entity> listarMusicos = new ArrayList<Entity>();
+		DAO conectar = new DAO();
+
+		musicos.setTipoDeInstrumento(req.tipoDeInstrumento);
+		musicos.setObjetivo(req.objetivo);
+		musicos.setCidade(req.cidade);
+		musicos.setEstado(req.estado);
+		
+		conectar.buscar(musicos);
+		
+		return listarMusicos;
+	}
+
+}
