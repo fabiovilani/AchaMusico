@@ -71,6 +71,7 @@
 						<label class="control-label">Estado</label>
 						<div class="bounceIn animation-delay2">
 							<select id="estados" class="form-control chzn-select">
+							<option value="0">São Paulo</option>
 							</select>
 						</div><!-- /.col -->
 						</div><!-- /form-group -->
@@ -79,6 +80,7 @@
 							<div class="bounceIn animation-delay2">
 								<select id="cidades" class="form-control chzn-select">
 									<option value="0">Selecione um estado</option>
+									<option value="0">São Paulo</option>
 								</select>
 							</div><!-- /.col -->
 						</div><!-- /form-group -->
@@ -129,9 +131,16 @@
 						</div><!-- /.col -->
 						</div><!-- /form-group -->
 						<div class="form-group">
-							<label>Objetivo</label>
-							<input type="text" placeholder="Objetivo" class="form-control input-sm bounceIn animation-delay2">
-						</div>
+							<label class="control-label">Objetivo</label>
+								<div class="">
+									<select class="form-control chzn-select">
+										<option value="0" selected="selected">Selecione</option>
+										<option>Ambos</option>
+										<option>Hobby</option>
+										<option>Profissional</option>
+									</select>
+								</div><!-- /.col -->
+							</div><!-- /form-group -->
 						<div class="form-group">
 							<label>Influências</label>
 							<input type="text" placeholder="Influências" class="form-control input-sm bounceIn animation-delay2">
